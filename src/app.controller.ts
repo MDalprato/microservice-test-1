@@ -12,8 +12,7 @@ export class AppController {
   sum(data: any): any {
     console.log(data);
 
-
-    const text = "Your name is " + data.name + " and your surname is " + data.surname;
+    const text = "Your name is " + data.name + " and your surname is " + data.surname + " - I'm microservice 1";
     return text;
   }
 }
