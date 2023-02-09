@@ -8,10 +8,13 @@ import { IsString, IsEmail } from 'class-validator';
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @MessagePattern('sum')
-  sum(data: number[]): number {
+  @MessagePattern('getManipolatedName')
+  sum(data: any): any {
     console.log(data);
-    return data.reduce((a, b) => a + b, 0);
+
+
+    const text = "Your name is " + data.name + " and your surname is " + data.surname;
+    return text;
   }
 }
 
