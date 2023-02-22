@@ -16,7 +16,7 @@ export class AppController {
     return text;
   }
 
-  // @MessagePattern('getRecordingsList')
+  // @MessagePattern('addRecording')
 
   // getRecList(): any {
   //   return this.appService.getRecList();

@@ -9,32 +9,37 @@ import { MessagePattern, Payload, Ctx } from '@nestjs/microservices';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @Get()
+  // @Get()
+  // async find(): Promise<User[]> {
+  //   return await this.usersService.find();
+  // }
+
+  // @Get(':id')
+  // async findOne(@Param('id') id: string): Promise<User> {
+  //   return await this.usersService.findOne(id);
+  // }
+
+
+  @MessagePattern('getAllRec')
   async find(): Promise<User[]> {
     return await this.usersService.find();
   }
-
-  @Get(':id')
-  async findOne(@Param('id') id: string): Promise<User> {
-    return await this.usersService.findOne(id);
-  }
-
   //@Post()
-  @MessagePattern('getRecordingsList')
+  @MessagePattern('addRecording')
   async create(data: CreateUserDto): Promise<void> {
     await this.usersService.create(data);
   }
 
-  @Put(':id')
-  async update(
-    @Param('id') id: string,
-    @Body() body: UpdateUserDto
-  ): Promise<void> {
-    await this.usersService.update(id, body);
-  }
+  // @Put(':id')
+  // async update(
+  //   @Param('id') id: string,
+  //   @Body() body: UpdateUserDto
+  // ): Promise<void> {
+  //   await this.usersService.update(id, body);
+  // }
 
-  @Delete(':id')
-  async delete(@Param('id') id: string): Promise<void> {
-    await this.usersService.delete(id);
-  }
+  // @Delete(':id')
+  // async delete(@Param('id') id: string): Promise<void> {
+  //   await this.usersService.delete(id);
+  // }
 }

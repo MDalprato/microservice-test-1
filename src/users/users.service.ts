@@ -11,9 +11,9 @@ export class UsersService {
     private db: Db,
   ) {}
 
-  async find(): Promise<User[]> {
-    return [];
-   // return await this.db.collection('users').find().toArray();
+  async find(): Promise<any[]> {
+
+    return await this.db.collection('users').find().toArray();
   }
 
   async findOne(id: string): Promise<User> {
