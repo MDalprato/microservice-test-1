@@ -15,5 +15,11 @@ export class AppController {
     const text = "Your name is " + data.name + " and your surname is " + data.surname + " - I'm microservice 1";
     return text;
   }
+
+  // @MessagePattern('getRecordingsList')
+
+  // getRecList(): any {
+  //   return this.appService.getRecList();
+  // }
 }
 
