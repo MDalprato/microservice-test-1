@@ -5,7 +5,7 @@ import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
 import { MessagePattern, Payload, Ctx } from '@nestjs/microservices';
 
-@Controller('users')
+@Controller('recs')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 

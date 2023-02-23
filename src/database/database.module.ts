@@ -11,9 +11,10 @@ import { MongoClient, Db, Logger } from 'mongodb';
 
           const client = await MongoClient.connect('mongodb://127.0.0.1');
 
-          const db = client.db('mydb');
+          const db = client.db('rec_test');
 
-          await db.collection('users').createIndex({ email: 1 }, { unique: true, sparse: true });
+          //await db.collection('recs').createIndex({ cameraId: 1 }, { unique: true, sparse: true });
+          await db.collection('recs');
 
           return db;
         } catch (e) {

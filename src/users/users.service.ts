@@ -13,7 +13,7 @@ export class UsersService {
 
   async find(): Promise<any[]> {
 
-    return await this.db.collection('users').find().toArray();
+    return await this.db.collection('recs').find().toArray();
   }
 
   async findOne(id: string): Promise<User> {
@@ -21,7 +21,7 @@ export class UsersService {
       throw new BadRequestException;
     }
 
-    const response = await this.db.collection('users').findOne({
+    const response = await this.db.collection('recs').findOne({
       _id: new ObjectID(id),
     });
 
@@ -34,7 +34,7 @@ export class UsersService {
   }
 
   async create(body: CreateUserDto): Promise<void> {
-    await this.db.collection('users').insertOne(body);
+    await this.db.collection('recs').insertOne(body);
   }
 
   async update(id: string, body: UpdateUserDto): Promise<void> {
@@ -42,7 +42,7 @@ export class UsersService {
       throw new BadRequestException;
     }
 
-    await this.db.collection('users').updateOne(
+    await this.db.collection('recs').updateOne(
       {
         _id: new ObjectID(id),
       },
@@ -59,7 +59,7 @@ export class UsersService {
       throw new BadRequestException;
     }
 
-    const response = await this.db.collection('users').deleteOne({
+    const response = await this.db.collection('recs').deleteOne({
       _id: new ObjectID(id),
     });
 
