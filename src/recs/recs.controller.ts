@@ -1,8 +1,6 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { User } from './interfaces/user.interface';
-import { UsersService } from './users.service';
-import { CreateUserDto } from './dtos/createUser.dto';
-import { UpdateUserDto } from './dtos/updateUser.dto';
+import { RecChunk } from './interfaces/recchunk.interface';
+import { UsersService } from './recs.service';
 import { MessagePattern, Payload, Ctx } from '@nestjs/microservices';
 
 @Controller('recs')
@@ -21,13 +19,8 @@ export class UsersController {
 
 
   @MessagePattern('getAllRec')
-  async find(): Promise<User[]> {
+  async find(): Promise<RecChunk[]> {
     return await this.usersService.find();
-  }
-  //@Post()
-  @MessagePattern('addRecording')
-  async create(data: CreateUserDto): Promise<void> {
-    await this.usersService.create(data);
   }
 
   // @Put(':id')
