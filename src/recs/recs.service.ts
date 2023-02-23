@@ -14,6 +14,13 @@ export class UsersService {
     return await this.db.collection('recs').find().toArray();
   }
 
+  async findRecForChannel(chId: number): Promise<any[]> {
+
+    return await this.db.collection('recs').find({cameraId:chId}).toArray();
+  }
+
+  
+
   // async findOne(id: string): Promise<User> {
   //   if (!ObjectID.isValid(id)) {
   //     throw new BadRequestException;
